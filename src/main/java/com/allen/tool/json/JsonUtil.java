@@ -25,7 +25,7 @@ public class JsonUtil {
 	/**
 	 * Jackson的ObjectMapper对象
 	 */
-	private static ObjectMapper objectMapper;
+	private static volatile ObjectMapper objectMapper;
 
 	/**
 	 * 获取ObjectMapper实例
