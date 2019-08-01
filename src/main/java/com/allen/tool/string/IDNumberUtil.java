@@ -4,6 +4,12 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Pattern;
 
+/**
+ * 身份证号校验工具类
+ * 
+ * @author Allen
+ *
+ */
 public class IDNumberUtil {
 
 	/** 大陆地区地域编码最大值 **/
@@ -11,7 +17,7 @@ public class IDNumberUtil {
 	/** 大陆地区地域编码最小值 **/
 	public static final int MIN_MAINLAND_AREACODE = 110000;
 	/** 香港地域编码值 **/
-	public static final int HONGKONG_AREACODE = 810000; 
+	public static final int HONGKONG_AREACODE = 810000;
 	/** 台湾地域编码值 **/
 	public static final int TAIWAN_AREACODE = 710000;
 	/** 澳门地域编码值 **/
@@ -25,7 +31,6 @@ public class IDNumberUtil {
 	public static final String regexBirthdayInCommonYear = "^((19[0-9]{2})|(200[0-9])|(201[0-5]))((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|3[0-1])|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|1[0-9]|2[0-8]))$";
 
 	private static final Set<String> BLACK_SET = new HashSet<String>() {
-
 		private static final long serialVersionUID = 48136604486603324L;
 		{
 			add("111111111111111");

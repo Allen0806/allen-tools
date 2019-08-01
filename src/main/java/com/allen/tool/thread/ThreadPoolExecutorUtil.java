@@ -18,7 +18,7 @@ public final class ThreadPoolExecutorUtil {
 	/**
 	 * 线程执行者
 	 */
-	private static ThreadPoolExecutor executorService;
+	private static volatile ThreadPoolExecutor executorService;
 
 	/**
 	 * 获取线程执行服务
