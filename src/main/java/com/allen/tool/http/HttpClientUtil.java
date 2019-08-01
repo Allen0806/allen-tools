@@ -42,7 +42,6 @@ import org.slf4j.LoggerFactory;
 
 import com.allen.tool.string.StringUtil;
 
-
 /**
  * Apache的HttpClient工具类，用于处理http请求及相应等操作
  * 
@@ -63,14 +62,9 @@ public final class HttpClientUtil {
 	private static final String DEFAULT_CHARSET = "UTF-8";
 
 	/**
-	 * 连接池管理
-	 */
-	private static PoolingHttpClientConnectionManager connectionManager;
-
-	/**
 	 * httpClient单例对象
 	 */
-	private static CloseableHttpClient httpClient;
+	private static volatile CloseableHttpClient httpClient;
 
 	/**
 	 * 禁止实例化
@@ -352,8 +346,8 @@ public final class HttpClientUtil {
 		SocketConfig defaultSocketConfig = SocketConfig.custom().setTcpNoDelay(true).build();
 
 		// 定义连接池管理
-		connectionManager = new PoolingHttpClientConnectionManager(socketFactoryRegistry, connectionFactory,
-				dnsResolver);
+		PoolingHttpClientConnectionManager connectionManager = new PoolingHttpClientConnectionManager(
+				socketFactoryRegistry, connectionFactory, dnsResolver);
 		// 设置整个连接池最大连接数
 		connectionManager.setMaxTotal(300);
 		// 设置每个路由的默认最大连接数
