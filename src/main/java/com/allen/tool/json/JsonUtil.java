@@ -34,22 +34,22 @@ public class JsonUtil {
 	 * @return ObjectMapper实例
 	 */
 	private static ObjectMapper getObjectMapper() {
-		if (objectMapper != null) {
-			return objectMapper;
+		if (objectMapper == null) {
+			synchronized (JsonUtil.class) {
+				if (objectMapper != null) {
+					return objectMapper;
+				}
+				objectMapper = new ObjectMapper();
+				objectMapper.setSerializationInclusion(JsonInclude.Include.ALWAYS);
+				objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+				objectMapper.configure(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT, true);
+				objectMapper.configure(DeserializationFeature.ACCEPT_EMPTY_ARRAY_AS_NULL_OBJECT, true);
+				objectMapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
+
+			}
 		}
 
-		synchronized (JsonUtil.class) {
-			if (objectMapper != null) {
-				return objectMapper;
-			}
-			objectMapper = new ObjectMapper();
-			objectMapper.setSerializationInclusion(JsonInclude.Include.ALWAYS);
-			objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-			objectMapper.configure(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT, true);
-			objectMapper.configure(DeserializationFeature.ACCEPT_EMPTY_ARRAY_AS_NULL_OBJECT, true);
-			objectMapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
-			return objectMapper;
-		}
+		return objectMapper;
 	}
 
 	/**
