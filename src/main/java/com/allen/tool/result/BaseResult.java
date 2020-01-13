@@ -25,7 +25,7 @@ public class BaseResult<T> {
 	/**
 	 * 业务对象
 	 */
-	private T result;
+	private T data;
 
 	/**
 	 * 构造方法，默认初始化为成功状态
@@ -49,11 +49,11 @@ public class BaseResult<T> {
 	 * 
 	 * @param status  状态码
 	 * @param message 状态信息
-	 * @param result  结果对象
+	 * @param data    结果对象
 	 */
-	public BaseResult(String status, String message, T result) {
+	public BaseResult(String status, String message, T data) {
 		this.status = status;
-		this.result = result;
+		this.data = data;
 		this.message = message;
 	}
 
@@ -73,12 +73,12 @@ public class BaseResult<T> {
 		this.message = message;
 	}
 
-	public T getResult() {
-		return result;
+	public T getData() {
+		return data;
 	}
 
-	public void setResult(T result) {
-		this.result = result;
+	public void setData(T data) {
+		this.data = data;
 	}
 
 	/**
