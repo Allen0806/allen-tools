@@ -30,7 +30,6 @@ public class JsonUtil {
 	/**
 	 * 获取ObjectMapper实例
 	 * 
-	 * @param createNew 是否创建新的实例
 	 * @return ObjectMapper实例
 	 */
 	private static ObjectMapper getObjectMapper() {
@@ -80,7 +79,7 @@ public class JsonUtil {
 		try {
 			return getObjectMapper().readValue(json, clazz);
 		} catch (Exception e) {
-			LOGGER.error("将Json字符串[{}]转换为[]类型对象时发生异常", json, clazz.getName(), e);
+			LOGGER.error("将Json字符串[{}]转换为[{}]类型对象时发生异常", json, clazz.getName(), e);
 			throw new RuntimeException("将Json字符串转换为对象时发生异常", e);
 		}
 	}
@@ -97,7 +96,7 @@ public class JsonUtil {
 		try {
 			return getObjectMapper().readValue(json, valueTypeRef);
 		} catch (Exception e) {
-			LOGGER.error("将Json字符串[{}]转换为[]类型对象时发生异常", json, valueTypeRef, e);
+			LOGGER.error("将Json字符串[{}]转换为[{}]类型对象时发生异常", json, valueTypeRef.getType().getTypeName(), e);
 			throw new RuntimeException("将Json字符串转换为对象时发生异常", e);
 		}
 	}
