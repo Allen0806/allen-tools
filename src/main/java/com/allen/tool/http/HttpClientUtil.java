@@ -45,8 +45,8 @@ import com.allen.tool.string.StringUtil;
 /**
  * Apache的HttpClient工具类，用于处理http请求及相应等操作
  * 
- * @author lxt
- * @since 1.0
+ * @author Allen
+ * @since 1.0.0
  *
  */
 public final class HttpClientUtil {
@@ -374,9 +374,9 @@ public final class HttpClientUtil {
 				.setDefaultRequestConfig(requestConfig)
 				// 连接重用策略，即是否能keepAlive
 				.setConnectionReuseStrategy(DefaultConnectionReuseStrategy.INSTANCE)
-				// 长连接配置，即获取长连接生产多长时间
+				// 长连接配置，最大空闲时间
 				.setKeepAliveStrategy(DefaultConnectionKeepAliveStrategy.INSTANCE)
-				// 设置重试次数，默认3此，当前时紧用掉，需要时开启
+				// 设置重试次数，默认3次，此处禁用，需要时开启
 				.setRetryHandler(new DefaultHttpRequestRetryHandler(0, false)).build();
 
 		// JVM停止或重启时，关闭连接池释放掉连接

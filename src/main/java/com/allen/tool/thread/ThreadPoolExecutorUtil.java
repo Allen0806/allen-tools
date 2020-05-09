@@ -8,6 +8,14 @@ import java.util.concurrent.TimeUnit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * 线程池工具
+ *
+ * @author Allen
+ * @date 2020年5月9日
+ * @since 1.0.0
+ *
+ */
 public final class ThreadPoolExecutorUtil {
 
 	/**
@@ -19,6 +27,13 @@ public final class ThreadPoolExecutorUtil {
 	 * 线程执行者
 	 */
 	private static volatile ThreadPoolExecutor executorService;
+
+	/**
+	 * 禁止实例化
+	 */
+	private ThreadPoolExecutorUtil() {
+
+	}
 
 	/**
 	 * 获取线程执行服务
@@ -34,13 +49,6 @@ public final class ThreadPoolExecutorUtil {
 			}
 		}
 		return executorService;
-	}
-
-	/**
-	 * 禁止实例化
-	 */
-	private ThreadPoolExecutorUtil() {
-
 	}
 
 	/**

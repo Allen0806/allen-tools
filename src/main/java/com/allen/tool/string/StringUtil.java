@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
  * 字符串工具类，包含所有的字符串处理方法
  * 
  * @author Allen
- * @since 1.0
+ * @since 1.0.0
  */
 public class StringUtil {
 
@@ -165,7 +165,7 @@ public class StringUtil {
 		}
 		return new String(newCodePoints, 0, outOffset);
 	}
-	
+
 	/**
 	 * 校验给定的字符串是否匹配给定的正则表达式
 	 * 

@@ -11,14 +11,14 @@ import com.allen.tool.string.StringUtil;
  * 日期型工具类，包含所有日期格式相关的处理方法
  * 
  * @author Allen
- * @since 1.0
+ * @since 1.0.0
  */
 public final class DateUtil {
+	// TODO 增加新的日期处理
 
 	/**
 	 * 禁止实例化
 	 */
-
 	private DateUtil() {
 
 	}

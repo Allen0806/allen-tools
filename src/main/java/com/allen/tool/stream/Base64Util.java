@@ -15,9 +15,10 @@ import com.allen.tool.string.StringUtil;
 
 /**
  * Base64编码工具
- * 
- * @author lxt
- * @since 1.0
+ *
+ * @author Allen
+ * @date 2020年5月9日
+ * @since 1.0.0
  *
  */
 public class Base64Util {
