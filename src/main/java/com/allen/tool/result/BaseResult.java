@@ -11,6 +11,11 @@ public class BaseResult<T> {
 	 * 系统异常时对应的状态码
 	 */
 	public static final String STATUS_SYSTEM_FAILURE = "999999";
+	
+	/**
+	 * 参数校验异常时对应的状态码
+	 */
+	public static final String STATUS_VALIDATION_FAILURE = "999998";
 
 	/**
 	 * 状态码
