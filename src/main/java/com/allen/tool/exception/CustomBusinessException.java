@@ -12,7 +12,7 @@ public class CustomBusinessException extends RuntimeException {
 	/**
 	 * 异常编码
 	 */
-	private String status;
+	private String statusCode;
 
 	/**
 	 * 序列化版本号
@@ -29,31 +29,31 @@ public class CustomBusinessException extends RuntimeException {
 	/**
 	 * 构造方法
 	 * 
-	 * @param status  异常编码
+	 * @param statusCode  异常编码
 	 * @param message 异常消息
 	 */
-	public CustomBusinessException(String status, String message) {
+	public CustomBusinessException(String statusCode, String message) {
 		super(message);
-		this.status = status;
+		this.statusCode = statusCode;
 	}
 
 	/**
 	 * 构造方法
 	 * 
-	 * @param status  异常编码
+	 * @param statusCode  异常编码
 	 * @param message 异常消息
 	 * @param cause   其他异常对象
 	 */
-	public CustomBusinessException(String status, String message, Throwable cause) {
+	public CustomBusinessException(String statusCode, String message, Throwable cause) {
 		super(message, cause);
-		this.status = status;
+		this.statusCode = statusCode;
 	}
 
-	public String getStatus() {
-		return status;
+	public String getStatusCode() {
+		return statusCode;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setStatusCode(String statusCode) {
+		this.statusCode = statusCode;
 	}
 }
