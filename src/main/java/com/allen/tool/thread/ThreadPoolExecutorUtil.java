@@ -1,12 +1,10 @@
 package com.allen.tool.thread;
 
-import java.util.concurrent.Executors;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * 线程池工具
@@ -19,67 +17,36 @@ import org.slf4j.LoggerFactory;
 public final class ThreadPoolExecutorUtil {
 
 	/**
-	 * 日志工具
+	 * 存储线程池名称对应的线程池
 	 */
-	private static final Logger LOGGER = LoggerFactory.getLogger(ThreadPoolExecutorUtil.class);
+	private static Map<String, ThreadPoolExecutor> executorMap = new ConcurrentHashMap<>(16);
 
 	/**
-	 * 线程执行者
+	 * 获取线程池对象
+	 * 
+	 * @param executorName 线程池名称
+	 * @return 线程池对象
 	 */
-	private static volatile ThreadPoolExecutor executorService;
-
+	public static ThreadPoolExecutor getExecutor(String executorName) {
+		ThreadPoolExecutor executor = executorMap.get(executorName);
+		if (executor == null) {
+			synchronized (ThreadPoolExecutorUtil.class) {
+				executor = executorMap.get(executorName);
+				if (executor == null) {
+					executor = new ThreadPoolExecutor(30, 50, 1L, TimeUnit.SECONDS,
+							new LinkedBlockingQueue<Runnable>(100), new CustomizableThreadFactory(executorName),
+							new ThreadPoolExecutor.AbortPolicy());
+					executorMap.put(executorName, executor);
+				}
+			}
+		}
+		return executor;
+	}
+	
 	/**
 	 * 禁止实例化
 	 */
 	private ThreadPoolExecutorUtil() {
 
-	}
-
-	/**
-	 * 获取线程执行服务
-	 * 
-	 * @return 线程执行服务
-	 */
-	public static ThreadPoolExecutor getExecutorService() {
-		if (executorService == null || executorService.isShutdown()) {
-			synchronized (ThreadPoolExecutorUtil.class) {
-				if (executorService == null || executorService.isShutdown()) {
-					init();
-				}
-			}
-		}
-		return executorService;
-	}
-
-	/**
-	 * 线程池初始化，默认创建30个线程，最大50个
-	 */
-	private static void init() {
-		executorService = new ThreadPoolExecutor(
-				// 核心线程数量
-				30,
-				// 最大线程数量
-				50,
-				// 当线程空闲时，保持活跃的时间
-				1L,
-				// 时间单元 ，毫秒级
-				TimeUnit.SECONDS,
-				// 线程任务队列
-				new LinkedBlockingQueue<Runnable>(),
-				// 创建线程的工厂
-				Executors.defaultThreadFactory());
-
-		// JVM停止或重启时，关闭连接池释放掉连接
-		Runtime.getRuntime().addShutdownHook(new Thread() {
-			@Override
-			public void run() {
-				try {
-					executorService.shutdown();
-					executorService.awaitTermination(30, TimeUnit.SECONDS);
-				} catch (InterruptedException e) {
-					LOGGER.error("关闭线程连接池错误", e);
-				}
-			}
-		});
 	}
 }

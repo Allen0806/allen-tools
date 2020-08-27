@@ -67,13 +67,6 @@ public final class HttpClientUtil {
 	private static volatile CloseableHttpClient httpClient;
 
 	/**
-	 * 禁止实例化
-	 */
-	private HttpClientUtil() {
-
-	}
-
-	/**
 	 * 获取Apache的HttpClient实例
 	 * 
 	 * @return HttpClient实例
@@ -323,6 +316,13 @@ public final class HttpClientUtil {
 		}
 
 		return result;
+	}
+	
+	/**
+	 * 禁止实例化
+	 */
+	private HttpClientUtil() {
+
 	}
 
 	/**
