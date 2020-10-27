@@ -1,5 +1,7 @@
 package com.allen.tool.exception;
 
+import com.allen.tool.result.ResultStatus;
+
 /**
  * 公共业务异常类
  *
@@ -29,8 +31,27 @@ public class CustomBusinessException extends RuntimeException {
 	/**
 	 * 构造方法
 	 * 
-	 * @param statusCode  异常编码
-	 * @param message 异常消息
+	 * @param resultStatus 状态码对象
+	 */
+	public CustomBusinessException(ResultStatus resultStatus) {
+		this(resultStatus.getCode(), resultStatus.getMessage());
+	}
+
+	/**
+	 * 构造方法
+	 * 
+	 * @param resultStatus 状态码对象
+	 * @param cause        异常消息
+	 */
+	public CustomBusinessException(ResultStatus resultStatus, Throwable cause) {
+		this(resultStatus.getCode(), resultStatus.getMessage(), cause);
+	}
+
+	/**
+	 * 构造方法
+	 * 
+	 * @param statusCode 异常编码
+	 * @param message    异常消息
 	 */
 	public CustomBusinessException(String statusCode, String message) {
 		super(message);
@@ -40,9 +61,9 @@ public class CustomBusinessException extends RuntimeException {
 	/**
 	 * 构造方法
 	 * 
-	 * @param statusCode  异常编码
-	 * @param message 异常消息
-	 * @param cause   其他异常对象
+	 * @param statusCode 异常编码
+	 * @param message    异常消息
+	 * @param cause      其他异常对象
 	 */
 	public CustomBusinessException(String statusCode, String message, Throwable cause) {
 		super(message, cause);

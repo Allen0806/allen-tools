@@ -26,7 +26,7 @@ public class BaseResult<T> {
 	 * @return 结果对象
 	 */
 	public static <T> BaseResult<T> success() {
-		return new BaseResult<>(StatusCode.SUCCESS.getCode(), StatusCode.SUCCESS.getMessage());
+		return new BaseResult<>(ResultStatus.SUCCESS.getCode(), ResultStatus.SUCCESS.getMessage());
 	}
 
 	/**
@@ -37,7 +37,7 @@ public class BaseResult<T> {
 	 * @return 结果对象
 	 */
 	public static <T> BaseResult<T> success(T data) {
-		return new BaseResult<>(StatusCode.SUCCESS.getCode(), StatusCode.SUCCESS.getMessage(), data);
+		return new BaseResult<>(ResultStatus.SUCCESS.getCode(), ResultStatus.SUCCESS.getMessage(), data);
 	}
 
 	/**
@@ -48,7 +48,7 @@ public class BaseResult<T> {
 	 * @return 结果对象
 	 */
 	public static <T> BaseResult<T> systemError(T data) {
-		return new BaseResult<>(StatusCode.SYSTEM_ERROR.getCode(), StatusCode.SYSTEM_ERROR.getMessage(), data);
+		return new BaseResult<>(ResultStatus.SYSTEM_ERROR.getCode(), ResultStatus.SYSTEM_ERROR.getMessage(), data);
 	}
 
 	/**
@@ -59,7 +59,7 @@ public class BaseResult<T> {
 	 * @return 结果对象
 	 */
 	public static <T> BaseResult<T> paramError(T data) {
-		return new BaseResult<>(StatusCode.PARAM_ERROR.getCode(), StatusCode.PARAM_ERROR.getMessage(), data);
+		return new BaseResult<>(ResultStatus.PARAM_ERROR.getCode(), ResultStatus.PARAM_ERROR.getMessage(), data);
 	}
 
 	/**
@@ -123,6 +123,6 @@ public class BaseResult<T> {
 	 */
 	@JsonIgnore
 	public boolean isSuccessful() {
-		return StatusCode.SUCCESS.getCode().equals(statusCode);
+		return ResultStatus.SUCCESS.getCode().equals(statusCode);
 	}
 }
