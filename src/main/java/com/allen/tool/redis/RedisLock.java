@@ -97,6 +97,11 @@ public class RedisLock {
 				return false;
 			}
 			current = System.currentTimeMillis();
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				log.error("线程Sleep异常，key为：{}，请求ID为：{}", lockKey, requestId, e);
+			}
 		} while (true);
 	}
 
