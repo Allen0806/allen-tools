@@ -33,7 +33,7 @@ public final class ThreadPoolExecutorUtil {
 			synchronized (ThreadPoolExecutorUtil.class) {
 				executor = executorMap.get(executorName);
 				if (executor == null) {
-					executor = new ThreadPoolExecutor(30, 50, 1L, TimeUnit.SECONDS,
+					executor = new ThreadPoolExecutor(30, 50, 5L, TimeUnit.SECONDS,
 							new LinkedBlockingQueue<Runnable>(100), new CustomizableThreadFactory(executorName),
 							new ThreadPoolExecutor.AbortPolicy());
 					executorMap.put(executorName, executor);
