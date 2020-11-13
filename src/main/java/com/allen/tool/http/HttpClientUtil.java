@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.http.HttpResponse;
@@ -223,13 +224,53 @@ public final class HttpClientUtil {
 	 * 执行参数为Json的post请求
 	 * 
 	 * @param url           请求url，不能为空
-	 * @param json          Json字符串，不能为空
+	 * @param bodyJson      Json字符串，不能为空
 	 * @param socketTimeout 响应请求的失效时间，单位为秒，取值范围为[1, 60]，当为-1时表示采用默认值，如果为其他值则直接返回null
 	 * @return 请求结果
 	 * @throws Exception 如果出错会抛出异常
 	 */
-	public static String doPost4Json(String url, String json, int socketTimeout) throws Exception {
-		return doPost(url, "application/json", json, socketTimeout);
+	public static String doPost4Json(String url, String bodyJson) throws Exception {
+		return doPost4Json(url, bodyJson, -1);
+	}
+
+	/**
+	 * 执行参数为Json的post请求
+	 * 
+	 * @param url           请求url，不能为空
+	 * @param bodyJson      Json字符串，不能为空
+	 * @param socketTimeout 响应请求的失效时间，单位为秒，取值范围为[1, 60]，当为-1时表示采用默认值，如果为其他值则直接返回null
+	 * @return 请求结果
+	 * @throws Exception 如果出错会抛出异常
+	 */
+	public static String doPost4Json(String url, String bodyJson, int socketTimeout) throws Exception {
+		return doPost(url, "application/json", bodyJson, socketTimeout);
+	}
+
+	/**
+	 * 执行参数为Json的post请求
+	 * 
+	 * @param url           请求url，不能为空
+	 * @param httpHeaders   http header 参数
+	 * @param bodyJson      Json字符串，不能为空
+	 * @param socketTimeout 响应请求的失效时间，单位为秒，取值范围为[1, 60]，当为-1时表示采用默认值，如果为其他值则直接返回null
+	 * @return 请求结果
+	 * @throws Exception 如果出错会抛出异常
+	 */
+	public static String doPost4Json(String url, Map<String, String> httpHeaders, String bodyJson, int socketTimeout)
+			throws Exception {
+		String result = null;
+		if (StringUtil.isBlank(url)) {
+			return result;
+		}
+		HttpPost httpPost = new HttpPost(url);
+		if (!Objects.isNull(httpHeaders) && httpHeaders.size() > 0) {
+			for (Map.Entry<String, String> entry : httpHeaders.entrySet()) {
+				String name = entry.getKey();
+				String value = entry.getValue();
+				httpPost.addHeader(name, value);
+			}
+		}
+		return doPost(httpPost, "application/json", bodyJson, socketTimeout);
 	}
 
 	/**
@@ -317,7 +358,7 @@ public final class HttpClientUtil {
 
 		return result;
 	}
-	
+
 	/**
 	 * 禁止实例化
 	 */
