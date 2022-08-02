@@ -1,7 +1,7 @@
 package com.allen.tool.sensitive;
 
 /**
- * @author liuxuri
+ * @author allen
  * @date 2022/01/14
  */
 public enum SensitiveTypeEnum {

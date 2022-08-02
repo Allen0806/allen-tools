@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
 /**
  * 对象脱敏注解类
  *
- * @author liuxuri
+ * @author allen
  * @date 2022/1/14
  */
 @Retention(RetentionPolicy.RUNTIME)

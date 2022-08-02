@@ -3,7 +3,7 @@ package com.allen.tool.sensitive;
 /**
  * 脱敏工具类
  *
- * @author liuxuri
+ * @author allen
  * @date 2022/1/14
  */
 public class DesensitizedUtils {
