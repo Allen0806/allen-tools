@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * 可定义的线程工厂
  *
- * @author Allen
+ * @author luoxuetong
  * @date Aug 26, 2020
  * @since 1.0.0
  */

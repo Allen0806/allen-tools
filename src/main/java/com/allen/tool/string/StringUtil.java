@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 /**
  * 字符串工具类，包含所有的字符串处理方法
  * 
- * @author Allen
+ * @author luoxuetong
  * @since 1.0.0
  */
 public class StringUtil {
@@ -211,5 +211,50 @@ public class StringUtil {
 		}
 		StringBuilder sb = new StringBuilder(str);
 		return sb.replace(firstReservced, firstReservced + replacedLength, repaceStr.toString()).toString();
+	}
+
+	/**
+	 * 隐藏手机号处理，隐藏中间4为为*
+	 * 
+	 * @param str
+	 * @return
+	 */
+	public static final String concealPhone(String str) {
+		if (isBlank(str)) {
+			return null;
+		}
+		if (str.length() < 11) {
+			return null;
+		}
+		int start = str.length() - 8;
+		int end = str.length() - 4;
+		String pre = str.substring(0, start);
+		String sub = str.substring(end, str.length());
+		return pre + "****" + sub;
+	}
+
+	/**
+	 * 去掉字符串结尾的换行符
+	 * 
+	 * @param str 给定的字符串
+	 * @return 去掉结尾换行符的字符串
+	 */
+	public static final String removeEndingNewlineChar(String str) {
+		if (isBlank(str)) {
+			return str;
+		}
+		if (str.endsWith("\r\n")) {
+			return str.substring(0, str.length() - 2);
+		} else if (str.endsWith("\r")) {
+			return str.substring(0, str.length() - 1);
+		} else if (str.endsWith("\n")) {
+			return str.substring(0, str.length() - 1);
+		}
+		return str;
+	}
+
+	public static void main(String[] args) {
+		String s = "8615210341053";
+		System.out.println(concealPhone(s));
 	}
 }

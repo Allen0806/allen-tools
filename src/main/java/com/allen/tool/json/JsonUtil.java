@@ -15,7 +15,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 /**
  * Json工具类，基于Jackson实现
  *
- * @author lxt
+ * @author luoxuetong
  * @since 1.0
  */
 public class JsonUtil {
@@ -111,6 +111,10 @@ public class JsonUtil {
 	public static Map<String, Object> json2Map(String json) {
 		return json2Object(json, new TypeReference<Map<String, Object>>() {
 		});
+	}
+
+	public static void main(String[] args) {
+		
 	}
 
 }

@@ -5,16 +5,15 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
+import com.allen.tool.string.StringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.allen.tool.string.StringUtil;
 
 /**
  * 反射工具类
  * 
- * @author Allen
- * @since 1.0
+ * @author luoxuetong
+ * @since 1.0.0
  */
 public class ReflectUtil {
 
@@ -229,11 +228,10 @@ public class ReflectUtil {
 	}
 
 	/**
-	 * 改变private/protected的方法为public，尽量不调用实际改动的语句，避免JDK的SecurityManager抱怨
+	 * 改变private/protected的方法为public，尽量不调用实际改动的语句，避免JDK的SecurityManager报错
 	 * 
 	 * @param method 方法对象
 	 */
-	@SuppressWarnings("deprecation")
 	public static void makeAccessible(Method method) {
 		if ((!Modifier.isPublic(method.getModifiers()) || !Modifier.isPublic(method.getDeclaringClass().getModifiers()))
 				&& !method.isAccessible()) {
@@ -242,11 +240,10 @@ public class ReflectUtil {
 	}
 
 	/**
-	 * 改变private/protected的成员变量为public，尽量不调用实际改动的语句，避免JDK的SecurityManager抱怨
+	 * 改变private/protected的成员变量为public，尽量不调用实际改动的语句，避免JDK的SecurityManager报错
 	 * 
 	 * @param field 域对象
 	 */
-	@SuppressWarnings("deprecation")
 	public static void makeAccessible(Field field) {
 		if ((!Modifier.isPublic(field.getModifiers()) || !Modifier.isPublic(field.getDeclaringClass().getModifiers())
 				|| Modifier.isFinal(field.getModifiers())) && !field.isAccessible()) {

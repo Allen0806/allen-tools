@@ -16,7 +16,7 @@ import com.allen.tool.string.StringUtil;
 /**
  * Base64编码工具
  *
- * @author Allen
+ * @author luoxuetong
  * @date 2020年5月9日
  * @since 1.0.0
  *

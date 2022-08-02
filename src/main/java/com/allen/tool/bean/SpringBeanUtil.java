@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 /**
  * 根据Bean的名称获取Spring容器中的bean实例
  * 
- * @author Allen
+ * @author luoxuetong
  * @date 2020年12月1日
  * @since 1.0.0
  */

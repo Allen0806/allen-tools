@@ -5,7 +5,7 @@ import com.allen.tool.result.ResultStatus;
 /**
  * 公共业务异常类
  *
- * @author Allen
+ * @author luoxuetong
  * @date Jul 17, 2020
  * @since 1.0.0
  */
@@ -14,7 +14,7 @@ public class CustomBusinessException extends RuntimeException {
 	/**
 	 * 异常编码
 	 */
-	private String statusCode;
+	private String code;
 
 	/**
 	 * 序列化版本号
@@ -50,31 +50,36 @@ public class CustomBusinessException extends RuntimeException {
 	/**
 	 * 构造方法
 	 * 
-	 * @param statusCode 异常编码
+	 * @param code 异常编码
 	 * @param message    异常消息
 	 */
-	public CustomBusinessException(String statusCode, String message) {
+	public CustomBusinessException(String code, String message) {
 		super(message);
-		this.statusCode = statusCode;
+		this.code = code;
 	}
 
 	/**
 	 * 构造方法
 	 * 
-	 * @param statusCode 异常编码
+	 * @param code 异常编码
 	 * @param message    异常消息
 	 * @param cause      其他异常对象
 	 */
-	public CustomBusinessException(String statusCode, String message, Throwable cause) {
+	public CustomBusinessException(String code, String message, Throwable cause) {
 		super(message, cause);
-		this.statusCode = statusCode;
+		this.code = code;
 	}
 
+	@Deprecated
 	public String getStatusCode() {
-		return statusCode;
+		return code;
+	}
+	
+	public String getCode() {
+		return code;
 	}
 
-	public void setStatusCode(String statusCode) {
-		this.statusCode = statusCode;
+	public void setCode(String code) {
+		this.code = code;
 	}
 }
