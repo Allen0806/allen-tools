@@ -15,7 +15,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 /**
  * Json工具类，基于Jackson实现
  *
- * @author luoxuetong
+ * @author allen
  * @since 1.0
  */
 public class JsonUtil {

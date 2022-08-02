@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 线程池工具
  *
- * @author luoxuetong
+ * @author allen
  * @date 2020年5月9日
  * @since 1.0.0
  *

@@ -14,7 +14,7 @@ import com.allen.tool.thread.ThreadPoolExecutorUtil;
 /**
  * 日期型工具类，包含所有日期格式相关的处理方法
  * 
- * @author luoxuetong
+ * @author allen
  * @since 1.0.0
  */
 public final class DateUtil {
@@ -32,7 +32,7 @@ public final class DateUtil {
 	 * @return 转换后的Date对象
 	 * @throws IllegalArgumentException 如果日期字符串或日期格式字符串为空 ，或者日期格式字符串不合法
 	 * @throws ParseException           如果不能解析日期字符串
-	 * @author luoxuetong
+	 * @author allen
 	 * @date 2018年5月18日 下午8:08:30
 	 */
 	public static Date toDate(String dateStr, String pattern) throws ParseException {
@@ -49,7 +49,7 @@ public final class DateUtil {
 	 * @param pattern 日期格式字符串
 	 * @return 格式化后的日期字符串
 	 * @throws IllegalArgumentException 如果日期对象或日期格式字符串为空 ，或者日期格式字符串不合法
-	 * @author luoxuetong
+	 * @author allen
 	 * @date 2018年5月18日 下午8:08:30
 	 */
 	public static String toString(Date date, String pattern) {
@@ -87,7 +87,7 @@ public final class DateUtil {
 	 * @param dateStr 日期字符串
 	 * @param pattern 日期格式
 	 * @return true-满足；false-不满足
-	 * @author luoxuetong
+	 * @author allen
 	 * @since 1.0
 	 */
 	public static boolean isValidDate(String dateStr, String pattern) {

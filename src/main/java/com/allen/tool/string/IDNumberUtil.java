@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 /**
  * 身份证号校验工具类
  *
- * @author luoxuetong
+ * @author allen
  * @date 2020年5月9日
  * @since 1.0.0
  *

@@ -5,7 +5,7 @@ import com.allen.tool.result.ResultStatus;
 /**
  * 公共业务异常类
  *
- * @author luoxuetong
+ * @author allen
  * @date Jul 17, 2020
  * @since 1.0.0
  */

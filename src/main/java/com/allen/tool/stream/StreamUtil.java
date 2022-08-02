@@ -8,7 +8,7 @@ import java.io.OutputStream;
 /**
  * Java的流处理工具类
  *
- * @author luoxuetong
+ * @author allen
  * @date 2020年5月9日
  * @since 1.0.0
  *

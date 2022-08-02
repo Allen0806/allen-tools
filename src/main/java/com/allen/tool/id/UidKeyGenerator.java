@@ -12,7 +12,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * UID生成器，百度算法
  *
- * @author luoxuetong
+ * @author allen
  * @date 2021年5月14日
  * @since 1.0.0
  *

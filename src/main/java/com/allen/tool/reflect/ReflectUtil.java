@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 /**
  * 反射工具类
  * 
- * @author luoxuetong
+ * @author allen
  * @since 1.0.0
  */
 public class ReflectUtil {
