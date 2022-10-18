@@ -1,37 +1,49 @@
 package com.allen.tool.result;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务结果封装类
  *
  * @param <T>
- * @author allen
+ * @author luoxuetong
  * @date 2021年5月14日
  * @since 1.0.0
  */
+@ApiModel("服务结果封装类")
 public class BaseResult<T> {
 
     /**
-     * 状态码
+     * 响应码
      */
+    @ApiModelProperty(value = "响应码")
     private String code;
 
     /**
-     * 状态信息
+     * 响应信息
      */
+    @ApiModelProperty(value = "响应信息")
     private String message;
+
+    /**
+     * 业务对象是否加密：0-否，1-是，默认为0
+     */
+    @ApiModelProperty(value = "业务对象是否加密：0-否，1-是，默认为0")
+    private String encrypted = "0";
 
     /**
      * 业务对象
      */
+    @ApiModelProperty(value = "业务对象")
     private T data;
 
     /**
      * 返回结果对象
      *
-     * @param code    状态码
-     * @param message 消息
+     * @param code    响应码
+     * @param message 响应信息
      * @return 结果对象
      */
     public static <T> BaseResult<T> result(String code, String message) {
@@ -41,8 +53,8 @@ public class BaseResult<T> {
     /**
      * 返回结果对象
      *
-     * @param code    状态码
-     * @param message 消息
+     * @param code    响应码
+     * @param message 响应信息
      * @param data    业务对象
      * @param <T>     业务对象类型
      * @return
@@ -104,8 +116,8 @@ public class BaseResult<T> {
     /**
      * 构造方法
      *
-     * @param code    状态码
-     * @param message 状态信息
+     * @param code    响应码
+     * @param message 响应信息
      */
     public BaseResult(String code, String message) {
         this(code, message, null);
@@ -114,8 +126,8 @@ public class BaseResult<T> {
     /**
      * 构造方法
      *
-     * @param code    状态码
-     * @param message 状态信息
+     * @param code    响应码
+     * @param message 响应信息
      * @param data    结果对象
      */
     public BaseResult(String code, String message, T data) {
@@ -138,6 +150,14 @@ public class BaseResult<T> {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getEncrypted() {
+        return encrypted;
+    }
+
+    public void setEncrypted(String encrypted) {
+        this.encrypted = encrypted;
     }
 
     public T getData() {

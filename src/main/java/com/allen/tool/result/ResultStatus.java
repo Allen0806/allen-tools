@@ -3,7 +3,7 @@ package com.allen.tool.result;
 /**
  * 状态码封装类
  * 
- * @author allen
+ * @author luoxuetong
  * @date Jul 20, 2020
  * @since 1.0.0
  */
@@ -23,6 +23,11 @@ public class ResultStatus {
 	 * 参数错误对应的状态码常量
 	 */
 	public static final ResultStatus PARAM_ERROR = new ResultStatus("999998", "参数错误");
+
+	/**
+	 * 参数错误对应的状态码常量
+	 */
+	public static final ResultStatus NETWORK_ERROR = new ResultStatus("999997", "网络异常");
 
 	/**
 	 * 状态编码
