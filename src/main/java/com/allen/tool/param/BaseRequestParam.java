@@ -5,6 +5,8 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.ToString;
 
+import jakarta.validation.Valid;
+
 /**
  * 接口请求参数封装
  *
@@ -14,12 +16,13 @@ import lombok.ToString;
 @Data
 @ToString
 @ApiModel("接口请求参数封装")
-public class RequestParam<T> {
+public class BaseRequestParam<T> {
 
     /**
      * 业务请求参数
      */
     @ApiModelProperty(value = "业务请求参数")
+    @Valid
     private T bizParam;
 
     /**

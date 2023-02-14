@@ -12,9 +12,9 @@ import lombok.ToString;
  * @date 2022-09-13
  */
 @Data
-@ToString
+@ToString(callSuper = true)
 @ApiModel("C端接口请求参数封装")
-public class AppRequestParam<T> extends RequestParam<T>{
+public class AppRequestParam<T> extends BaseRequestParam<T> {
 
     /**
      * 用户登录参数，如果需要，必须加密传输

@@ -6,6 +6,9 @@ import lombok.Data;
 import lombok.ToString;
 import org.hibernate.validator.constraints.Range;
 
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+
 /**
  * 分页查询参数对象
  *
@@ -22,12 +25,14 @@ public class PagingQueryParam<T> {
      * 业务查询参数
      */
     @ApiModelProperty(value = "业务查询参数")
+    @Valid
     private T param;
 
     /**
      * 当前页数
      */
     @ApiModelProperty(value = "当前页数，不传时默认为1")
+    @NotNull(message = "当前页数不能为空")
     @Range(min = 1, message = "当前页数最小值为1")
     private Integer pageNo;
 
@@ -42,6 +47,7 @@ public class PagingQueryParam<T> {
      * 每页行数
      */
     @ApiModelProperty(value = "每页行数，不传时默认为10")
+    @NotNull(message = "每页行数不能为空")
     @Range(min = 1, max = 100, message = "每页行数最小值为1，最大值为100")
     private Integer pageSize;
 

@@ -1,21 +1,21 @@
 package com.allen.tool.json;
 
-import java.text.SimpleDateFormat;
-import java.util.Map;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.text.SimpleDateFormat;
+import java.util.Map;
 
 /**
  * Json工具类，基于Jackson实现
  *
- * @author allen
+ * @author luoxuetong
  * @since 1.0
  */
 public class JsonUtil {
@@ -43,6 +43,7 @@ public class JsonUtil {
 				objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 				objectMapper.configure(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT, true);
 				objectMapper.configure(DeserializationFeature.ACCEPT_EMPTY_ARRAY_AS_NULL_OBJECT, true);
+				objectMapper.registerModule(new JavaTimeModule());
 				objectMapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
 
 			}
@@ -112,9 +113,4 @@ public class JsonUtil {
 		return json2Object(json, new TypeReference<Map<String, Object>>() {
 		});
 	}
-
-	public static void main(String[] args) {
-		
-	}
-
 }

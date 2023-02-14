@@ -132,7 +132,7 @@ public class StringUtil {
 		}
 		String realSeparator = separator;
 		if (".".equals(separator) || "+".equals(separator) || "*".equals(separator) || "|".equals(separator)) {
-			realSeparator = "\\" + realSeparator;
+			realSeparator = "\\\\" + realSeparator;
 		}
 		return str.split(realSeparator);
 	}
@@ -251,10 +251,5 @@ public class StringUtil {
 			return str.substring(0, str.length() - 1);
 		}
 		return str;
-	}
-
-	public static void main(String[] args) {
-		String s = "8615210341053";
-		System.out.println(concealPhone(s));
 	}
 }
