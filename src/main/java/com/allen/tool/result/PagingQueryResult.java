@@ -11,7 +11,7 @@ import java.util.List;
  * 分页查询结果对象
  *
  * @param <T>
- * @author luoxuetong
+ * @author allen
  * @date 2022-08-11
  */
 @Data

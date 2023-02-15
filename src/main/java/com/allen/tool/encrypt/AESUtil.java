@@ -20,7 +20,7 @@ import java.util.Map;
 /**
  * AES加解密工具
  *
- * @author luoxuetong
+ * @author allen
  * @date 2022-08-13
  */
 public class AESUtil {

@@ -8,7 +8,7 @@ import lombok.ToString;
 /**
  * C端接口请求参数封装
  *
- * @author luoxuetong
+ * @author allen
  * @date 2022-09-13
  */
 @Data

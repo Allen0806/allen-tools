@@ -8,7 +8,7 @@ import io.swagger.annotations.ApiModelProperty;
  * 服务结果封装类
  *
  * @param <T>
- * @author luoxuetong
+ * @author allen
  * @date 2021年5月14日
  * @since 1.0.0
  */

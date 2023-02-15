@@ -11,7 +11,7 @@ import java.io.Serializable;
 /**
  * 用户登录信息封装类
  *
- * @author luoxuetong
+ * @author allen
  * @date 2022-08-17
  */
 @Data

@@ -15,7 +15,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 /**
  * 日期型工具类，包含所有日期格式相关的处理方法
  *
- * @author luoxuetong
+ * @author allen
  * @since 1.0.0
  */
 public final class DateUtil {

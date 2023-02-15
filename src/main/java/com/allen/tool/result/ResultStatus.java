@@ -3,7 +3,7 @@ package com.allen.tool.result;
 /**
  * 状态码封装类
  * 
- * @author luoxuetong
+ * @author allen
  * @date Jul 20, 2020
  * @since 1.0.0
  */
