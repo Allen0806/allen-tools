@@ -5,7 +5,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.ToString;
 
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 
 /**
  * 接口请求参数封装
@@ -14,7 +14,7 @@ import jakarta.validation.Valid;
  * @date 2022-09-13
  */
 @Data
-@ToString
+@ToString(callSuper = true)
 @ApiModel("接口请求参数封装")
 public class BaseRequestParam<T> {
 

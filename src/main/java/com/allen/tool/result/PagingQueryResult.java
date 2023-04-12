@@ -15,7 +15,7 @@ import java.util.List;
  * @date 2022-08-11
  */
 @Data
-@ToString
+@ToString(callSuper = true)
 @ApiModel("分页查询结果对象")
 public class PagingQueryResult<T> {
 

@@ -6,8 +6,8 @@ import lombok.Data;
 import lombok.ToString;
 import org.hibernate.validator.constraints.Range;
 
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 /**
  * 分页查询参数对象
@@ -17,7 +17,7 @@ import jakarta.validation.constraints.NotNull;
  * @date 2022-08-11
  */
 @Data
-@ToString
+@ToString(callSuper = true)
 @ApiModel("分页查询参数对象")
 public class PagingQueryParam<T> {
 
